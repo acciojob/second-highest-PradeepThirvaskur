@@ -8,28 +8,24 @@
 
 <body>	
 	<script>
-		
-			function secondHighest(arr){
-        
-        const secound= [...arr].sort((a,b)=>a-b);
+		function secondHighest(arr){
 
-        
-        if(arr.every((val,i,arr) => val === arr[0])){
+    // Check if all elements are the same
+    if(arr.every((val, _) => val === arr[0])){
         return "-Infinity";
-        //or this wold also work or(val,i,arr) will also work 
-        //if(arr.every((val, _) => val === arr[0])) {
-        //return "-Infinity";
-		}
-
-       if(secound.length<=1){return "-Infinity"}
-
-       else{
-            let finalanswer=secound[secound.length-2];
-            return finalanswer;
-       }
-      
-       
     }
+
+    // Sort the array in descending order
+    const secound = [...arr].sort((a,b) => b - a);
+
+    // If the array has one or no elements, return "-Infinity"
+    if(secound.length <= 1) {
+        return "-Infinity";
+    } else {
+        // Otherwise, return the second highest number
+        return secound[1];
+    }
+}
 		
 
 		function Main() {

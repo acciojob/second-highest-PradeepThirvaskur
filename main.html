@@ -8,10 +8,29 @@
 
 <body>	
 	<script>
-		function secondHighest(arr) {
-			//Write your code here
-			
+		
+			function secondHighest(arr){
+        
+        const secound= [...arr].sort((a,b)=>a-b);
+
+        
+        if(arr.every((val,i,arr) => val === arr[0])){
+        return "-Infinity";
+        //or this wold also work or(val,i,arr) will also work 
+        //if(arr.every((val, _) => val === arr[0])) {
+        //return "-Infinity";
 		}
+
+       if(secound.length<=1){return "-Infinity"}
+
+       else{
+            let finalanswer=secound[secound.length-2];
+            return finalanswer;
+       }
+      
+       
+    }
+		
 
 		function Main() {
 			var n = prompt("Enter the number of elements");

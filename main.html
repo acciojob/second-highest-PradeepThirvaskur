@@ -8,14 +8,14 @@
 
 <body>	
 	<script>
-		function secondHighest(arr) { 
+		function secondHighest(arr){
     // Check if all elements are the same or array length is less than 2
     if(arr.length < 2 || arr.every((val, _, arr) => val === arr[0])){
         return "-Infinity";
     }
 
-    let highest = -Infinity;
-    let secondHighest = -Infinity;
+    let highest = Number.NEGATIVE_INFINITY;
+    let secondHighest = Number.NEGATIVE_INFINITY;
 
     for(let i = 0; i < arr.length; i++){
         if(arr[i] > highest){
@@ -28,7 +28,6 @@
 
     return secondHighest;
 }
-
 		function Main() {
 			var n = prompt("Enter the number of elements");
 			var arr = [];

@@ -8,25 +8,26 @@
 
 <body>	
 	<script>
-		function secondHighest(arr){
-
-    // Check if all elements are the same
-    if(arr.every((val, _) => val === arr[0])){
+		function secondHighest(arr) { 
+    // Check if all elements are the same or array length is less than 2
+    if(arr.length < 2 || arr.every((val, _, arr) => val === arr[0])){
         return "-Infinity";
     }
 
-    // Sort the array in descending order
-    const secound = [...arr].sort((a,b) => b - a);
+    let highest = -Infinity;
+    let secondHighest = -Infinity;
 
-    // If the array has one or no elements, return "-Infinity"
-    if(secound.length <= 1) {
-        return "-Infinity";
-    } else {
-        // Otherwise, return the second highest number
-        return secound[1];
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] > highest){
+            secondHighest = highest;
+            highest = arr[i];
+        } else if(arr[i] > secondHighest && arr[i] < highest){
+            secondHighest = arr[i];
+        }
     }
+
+    return secondHighest;
 }
-		
 
 		function Main() {
 			var n = prompt("Enter the number of elements");
